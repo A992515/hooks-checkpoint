@@ -1,10 +1,14 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import "../Moviesdata";
-import Rate from "../Rate/Rate"
+import ReactStars from 'react-stars'
+import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
+import { Movie } from "../Movie/Movie";
+
+
 export const MovieCard = ({
-  movie: { image, name, rating, date, description },
+  movie: { id,image, name, rating, date, description , trailer },
 }) => {
+  
   return (
     <div>
       <Card style={{ width: "18rem", margin: "10px"}}>
@@ -13,9 +17,18 @@ export const MovieCard = ({
           <Card.Title style={{ height: "50px" }}>{name}</Card.Title>
           <Card.Text style={{ height: "80px" }}>{description}</Card.Text>
           <Card.Text style={{ height: "20px" }}>{date}</Card.Text>
-          <Rate rating={rating} style={{ height: "20px" }} />
+          <ReactStars count={rating} size={24} half={false} edit={false} color2={'#ffd700'} />
         </Card.Body>
       </Card>
+      <Router>
+      <Link to="/movie"><button> description </button></Link>
+        <Route path="/movie" render={() => (
+          <Movie name={name} trailer={trailer} description={description} />  )}
+          />
+          <Link to="/MoviesList">
+                <button variant="info">Go Back</button>
+            </Link>
+      </Router>
     </div>
   );
 };
