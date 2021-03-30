@@ -39,5 +39,4 @@ Rate.defaultProps = {
   starIndex: () => {},
   rating: 1,
 };
-
 export default Rate;

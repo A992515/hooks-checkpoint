@@ -1,19 +1,14 @@
 import React from "react";
-import Rate from "../Rate/Rate";
 import "./searchMovie.css"
+import ReactStars from 'react-stars'
 
 export const SearchMovie = ({
   setNameSearch,
   setRatingSearch,
-  ratingSearch,
 }) => {
   return (
     <div className="search">
-      <Rate
-        className="star-rating"
-        starIndex={setRatingSearch}
-        rating={ratingSearch}
-      />
+      <ReactStars count={5} size={24} onChange={setRatingSearch} half={false} edit={true} color2={'#FFFFFF'} />
       <div>
         <form action="" autoComplete="on">
           <input

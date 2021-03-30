@@ -1,24 +1,24 @@
-import React, { useState } from 'react'
-import { Modal, Button, Form } from "react-bootstrap"
-import './AddMovie.css'
+import React, { useState } from "react";
+import { Button, Modal, Form } from "react-bootstrap";
 
 export const AddMovie = ({ addMovie }) => {
-    const [show, setShow] = useState(false);
+  
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const [Name, setName] = useState("");
+  const [Description, setDescription] = useState("");
+  const [Image, setImage] = useState("");
+  const [Date, setDate] = useState("");
+  const [Rate, setRate] = useState();
 
-    const [Name, setName] = useState("");
-    const [Description, setDescription] = useState("");
-    const [Image, setImage] = useState("");
-    const [Date, setDate] = useState("");
-    const [Rate, setRate] = useState();
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const submitMovie = () => {
     let newMovie = {
       name: Name,
       description: Description,
-      img: Image,
+      image: Image,
       date: Date,
       rating: Rate,
     };
@@ -26,36 +26,32 @@ export const AddMovie = ({ addMovie }) => {
     handleClose();
   };
 
-    
-    return (
-        <>
-            <Button variant="primary" onClick={handleShow}>
-                Add Movie
-            </Button>
-
-            <Modal show={show} onHide={handleClose}>
-        <Modal.Header>
-          <Modal.Title>Add a New Movie</Modal.Title>
-        </Modal.Header>
+  return (
+    <div>
+      <Button variant="primary" onClick={handleShow}>
+        Add Movie
+        </Button>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Title>Add a New Movie</Modal.Title>
         <Modal.Body>
           <Form>
-            <Form.Group controlId="formBasicName">
+            <Form.Group>
               <Form.Label>Name</Form.Label>
               <Form.Control
-                type="text"
+                type="Text"
                 placeholder="Enter Movie Name "
                 onChange={(e) => setName(e.target.value)}
               />
             </Form.Group>
-            <Form.Group controlId="formBasicDescription">
+            <Form.Group >
               <Form.Label>Description</Form.Label>
               <Form.Control
-                type="text"
+                type="Text"
                 placeholder="Enter Movie Description "
                 onChange={(e) => setDescription(e.target.value)}
               />
             </Form.Group>
-            <Form.Group controlId="formBasicDate">
+            <Form.Group >
               <Form.Label>Date</Form.Label>
               <Form.Control
                 type="Text"
@@ -63,16 +59,16 @@ export const AddMovie = ({ addMovie }) => {
                 onChange={(e) => setDate(e.target.value)}
               />
             </Form.Group>
-            <Form.Group controlId="formBasicImage">
+            <Form.Group >
               <Form.Label>Image</Form.Label>
               <Form.Control
-                type="url"
-                placeholder="Enter url"
+                type="URL"
+                placeholder="Enter URL"
                 onChange={(e) => setImage(e.target.value)}
               />
             </Form.Group>
 
-            <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Group >
               <Form.Label>Rate</Form.Label>
               <Form.Control
                 as="select"
@@ -96,7 +92,7 @@ export const AddMovie = ({ addMovie }) => {
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
-    )
-}
-export default AddMovie
+      
+    </div>
+  );
+};

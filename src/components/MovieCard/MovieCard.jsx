@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import Rate from "../Rate/Rate";
+import "../Moviesdata";
+import Rate from "../Rate/Rate"
 export const MovieCard = ({
   movie: { image, name, rating, date, description },
 }) => {

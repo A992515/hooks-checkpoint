@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
-import { MoviesList } from "./MoviesList/MoviesList";
-import { SearchMovie } from "./searchMovie/searchMovie";
-import {moviesData} from "./Moviesdata";
-import { AddMovie } from "./AddMovie/AddMovie";
+import { MoviesList } from "./components/MoviesList/MoviesList";
+import { SearchMovie } from "./components/searchMovie/searchMovie";
+import { moviesData } from "./components/Moviesdata";
+import { AddMovie } from "./components/AddMovie/AddMovie";
+import { Row, Col } from "react-bootstrap";
 
 const App = () => {
   const [moviesList, setMoviesList] = useState(moviesData);
@@ -16,26 +17,20 @@ const App = () => {
   };
 
   return (
-    <div className="container">
+    <div>
+      <AddMovie addMovie={addMovie} />
       <SearchMovie
         setNameSearch={setNameSearch}
         ratingSearch={ratingSearch}
         setRatingSearch={setRatingSearch}
       />
-
       <MoviesList
         moviesList={moviesList}
         ratingSearch={ratingSearch}
         nameSearch={nameSearch}
       />
-
-      <div className="addmovie">
-        <AddMovie addMovie={addMovie} />
-      </div>
-      
     </div>
   );
 };
 
 export default App;
-
