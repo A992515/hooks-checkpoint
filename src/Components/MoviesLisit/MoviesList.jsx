@@ -7,7 +7,8 @@ function MovieList({ movies, searchRate, searchTitle }) {
         <div className="movieList">
             {movies
                 .filter(movie => movie.rate >= searchRate && movie.title.toLowerCase().includes(searchTitle.toLowerCase()))
-                .map((element, index) => <MovieCard movie={element} key={index} />)}
+                .map((element, index) => <MovieCard movie={element} key={index} 
+             />)}
         </div>
     )
 }
